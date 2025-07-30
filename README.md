@@ -13,6 +13,19 @@ Esta es una aplicación de consola desarrollada en Kotlin que permite registrar,
 - Manipulación de cadenas: nombre en mayúsculas/minúsculas, dominio del email.
 - Presentación clara de datos con resúmenes personalizados.
 
+## 🛠 Tecnologías usadas
+
+- Kotlin
+- IntelliJ IDEA Community Edition
+- Entrada y salida por consola
+
+## 🚀 Cómo ejecutar
+
+1. Abre el proyecto en IntelliJ IDEA.
+2. Abre `Main.kt`.
+3. Haz clic derecho y selecciona `Run 'MainKt'`.
+4. Ingresa los datos por consola cuando se soliciten.
+
 ## 📸 Ejemplo de ejecución
 
 ![Ejecución del programa](ejemplo.png)
