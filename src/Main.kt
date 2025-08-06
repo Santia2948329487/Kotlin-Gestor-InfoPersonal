@@ -1,67 +1,91 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-    val usuarios = mutableListOf<User>()
+    println("=== REGISTRO DE USUARIO 1 ===")
+    println("Nombre completo:")
+    val nombre1 = readLine() ?: ""
+    println("Edad:")
+    val edad1 = (readLine() ?: "0").toInt()
+    println("Altura en metros:")
+    val altura1 = (readLine() ?: "0").toDouble()
+    println("Peso en kg:")
+    val peso1 = (readLine() ?: "0").toDouble()
+    println("Email:")
+    val email1 = readLine() ?: ""
+    println("Ciudad:")
+    val ciudad1 = readLine() ?: ""
+    val usuario1 = User(nombre1, edad1, altura1, peso1, email1, ciudad1)
 
-    println("=== REGISTRO DE USUARIOS ===")
+    println("=== REGISTRO DE USUARIO 2 ===")
+    println("Nombre completo:")
+    val nombre2 = readLine() ?: ""
+    println("Edad:")
+    val edad2 = (readLine() ?: "0").toInt()
+    println("Altura en metros:")
+    val altura2 = (readLine() ?: "0").toDouble()
+    println("Peso en kg:")
+    val peso2 = (readLine() ?: "0").toDouble()
+    println("Email:")
+    val email2 = readLine() ?: ""
+    println("Ciudad:")
+    val ciudad2 = readLine() ?: ""
+    val usuario2 = User(nombre2, edad2, altura2, peso2, email2, ciudad2)
 
-    repeat(3) { i ->
-        println("\n→ Usuario ${i + 1}")
-        val usuario = pedirUsuario(scanner)
-        usuarios.add(usuario)
-    }
+    println("=== REGISTRO DE USUARIO 3 ===")
+    println("Nombre completo:")
+    val nombre3 = readLine() ?: ""
+    println("Edad:")
+    val edad3 = (readLine() ?: "0").toInt()
+    println("Altura en metros:")
+    val altura3 = (readLine() ?: "0").toDouble()
+    println("Peso en kg:")
+    val peso3 = (readLine() ?: "0").toDouble()
+    println("Email:")
+    val email3 = readLine() ?: ""
+    println("Ciudad:")
+    val ciudad3 = readLine() ?: ""
+    val usuario3 = User(nombre3, edad3, altura3, peso3, email3, ciudad3)
 
-    println("\n=== INFORMACIÓN DE LOS USUARIOS REGISTRADOS ===")
-    usuarios.forEach {
-        println(it.getResumen())
-        println("------------------------------------------------")
-    }
-}
+    // Mostrar resumen de cada usuario
+    println("\n=== RESÚMENES ===")
 
-fun pedirUsuario(scanner: Scanner): User {
-    print("Nombre completo: ")
-    val nombre = scanner.nextLine()
+    println("USUARIO 1")
+    println("Nombre: ${usuario1.nombre}")
+    println("MAY: ${usuario1.nombreMayus}")
+    println("min: ${usuario1.nombreMinus}")
+    println("Edad: ${usuario1.edad} - ${if (usuario1.esMayorDeEdad) "Mayor de edad" else "Menor de edad"}")
+    println("Altura: ${usuario1.altura} m")
+    println("Peso: ${usuario1.peso} kg")
+    println("IMC: ${usuario1.imc}")
+    println("Email: ${usuario1.email}")
+    println("Email válido: ${usuario1.emailValido}")
+    println("Dominio: ${usuario1.dominio}")
+    println("Ciudad: ${usuario1.ciudad}")
+    println("--------------------------------")
 
-    val edad = leerEntero(scanner, "Edad (positiva): ") { it > 0 }
+    println("USUARIO 2")
+    println("Nombre: ${usuario2.nombre}")
+    println("MAY: ${usuario2.nombreMayus}")
+    println("min: ${usuario2.nombreMinus}")
+    println("Edad: ${usuario2.edad} - ${if (usuario2.esMayorDeEdad) "Mayor de edad" else "Menor de edad"}")
+    println("Altura: ${usuario2.altura} m")
+    println("Peso: ${usuario2.peso} kg")
+    println("IMC: ${usuario2.imc}")
+    println("Email: ${usuario2.email}")
+    println("Email válido: ${usuario2.emailValido}")
+    println("Dominio: ${usuario2.dominio}")
+    println("Ciudad: ${usuario2.ciudad}")
+    println("--------------------------------")
 
-    val altura = leerDecimal(scanner, "Altura en metros (> 0): ") { it > 0 }
-
-    val peso = leerDecimal(scanner, "Peso en kg (> 0): ") { it > 0 }
-
-    val email = leerEmail(scanner)
-
-    print("Ciudad de residencia: ")
-    val ciudad = scanner.nextLine()
-
-    return User(nombre, edad, altura, peso, email, ciudad)
-}
-
-fun leerEntero(scanner: Scanner, mensaje: String, validacion: (Int) -> Boolean): Int {
-    while (true) {
-        print(mensaje)
-        val entrada = scanner.nextLine()
-        val numero = entrada.toIntOrNull()
-        if (numero != null && validacion(numero)) return numero
-        println("❌ Entrada no válida. Intenta de nuevo.")
-    }
-}
-
-fun leerDecimal(scanner: Scanner, mensaje: String, validacion: (Double) -> Boolean): Double {
-    while (true) {
-        print(mensaje)
-        val entrada = scanner.nextLine()
-        val numero = entrada.toDoubleOrNull()
-        if (numero != null && validacion(numero)) return numero
-        println("❌ Entrada no válida. Intenta de nuevo.")
-    }
-}
-
-fun leerEmail(scanner: Scanner): String {
-    while (true) {
-        print("Email: ")
-        val email = scanner.nextLine()
-        if (email.contains("@") && email.contains(".")) return email
-        println("❌ Email inválido. Debe contener '@' y '.'")
-    }
+    println("USUARIO 3")
+    println("Nombre: ${usuario3.nombre}")
+    println("MAY: ${usuario3.nombreMayus}")
+    println("min: ${usuario3.nombreMinus}")
+    println("Edad: ${usuario3.edad} - ${if (usuario3.esMayorDeEdad) "Mayor de edad" else "Menor de edad"}")
+    println("Altura: ${usuario3.altura} m")
+    println("Peso: ${usuario3.peso} kg")
+    println("IMC: ${usuario3.imc}")
+    println("Email: ${usuario3.email}")
+    println("Email válido: ${usuario3.emailValido}")
+    println("Dominio: ${usuario3.dominio}")
+    println("Ciudad: ${usuario3.ciudad}")
+    println("--------------------------------")
 }
